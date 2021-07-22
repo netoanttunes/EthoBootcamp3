@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validacao_da_pontuacao_do_Level</fullName>
+    <active>true</active>
+    <description>Valida se o Level está entre 0 e 100</description>
+    <errorConditionFormula>Level__c &gt; 100 || Level__c &lt; 0</errorConditionFormula>
+    <errorDisplayField>Level__c</errorDisplayField>
+    <errorMessage>O Level deve estar entre 0 e 100</errorMessage>
+</ValidationRule>

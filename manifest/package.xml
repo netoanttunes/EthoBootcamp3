@@ -30,8 +30,8 @@
     </types>
     <types>
         <members>*</members>
-        <name>Contact</name>
-        <name>Lead</name>
+        <members>Contact</members>
+        <members>Lead</members>
         <name>CustomObject</name>
     </types>
     <version>52.0</version>

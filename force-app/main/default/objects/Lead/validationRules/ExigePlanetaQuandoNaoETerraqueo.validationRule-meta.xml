@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExigePlanetaQuandoNaoETerraqueo</fullName>
+    <active>true</active>
+    <description>Formula para validar preenchimento do campo &quot;Planeta&quot; quando não é terráqueo</description>
+    <errorConditionFormula>NOT(isTerraqueo__c) &amp;&amp; ISBLANK(Planeta__c)</errorConditionFormula>
+    <errorDisplayField>Planeta__c</errorDisplayField>
+    <errorMessage>Favor preencher este campo, este possível herói NÂO é da Terra.</errorMessage>
+</ValidationRule>
