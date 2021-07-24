@@ -57,42 +57,12 @@ public class AtualizaRankingHabilidadeTrigger {
         {
             Set<Id> idsContato = new Set<Id>();
             
-            //for(Id idHabilidadeContato : this.mapObjFiltered.keySet())
-           // {
-              //  idsContato.add(this.mapObjFiltered.get(idHabilidadeContato).Contato__c);
-            //}
-            
             for(HabilidadeContato__c habilidadeContato : this.mapObjFiltered.values())
             {
                 idsContato.add(habilidadeContato.Contato__c);
             }
             
-            Map<Id,Contact> mapContatosRevisarRanking = new Map<Id,Contact>([SELECT Id, 
-                                                                             		(SELECT Id, Name, Level__c 
-                                                                              		 FROM HabilidadeContato__r 
-                                                                                     WHERE Level__c != null 
-                                                                                     ORDER BY Level__c DESC, NomeHabilidade__c) 
-                                                                             FROM Contact 
-                                                                             WHERE Id in : idsContato]);
-            
-            List<HabilidadeContato__c> habilidadesParaAtualizarRanking = new List<HabilidadeContato__c>();
-            for(Contact contato : mapContatosRevisarRanking.values())
-            {
-                if(!contato.HabilidadeContato__r.isEmpty())
-                {
-                    Integer ranking = 1;
-                    for(HabilidadeContato__c habilidadeContato : contato.HabilidadeContato__r)
-                    {
-                        habilidadeContato.Ranking__c = ranking++;
-                        habilidadesParaAtualizarRanking.add(habilidadeContato);
-                    }
-                }
-            }
-            
-            TriggerHandler.bypass('HabilidadeContatoTriggerHandler');
-            update habilidadesParaAtualizarRanking;
-            TriggerHandler.clearBypass('HabilidadeContatoTriggerHandler');
+            // HabilidadeContatoBO.getInstance().atualizaRanking(idsContato);
         }        
-    }
-    
+    }    
 }

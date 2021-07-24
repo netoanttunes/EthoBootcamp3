@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PapelNaBatalha__c</fullName>
+    <description>Papel na Batalha</description>
+    <externalId>false</externalId>
+    <formula>Contato__r.RecordType.Name</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Papel na Batalha</inlineHelpText>
+    <label>Papel na Batalha</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

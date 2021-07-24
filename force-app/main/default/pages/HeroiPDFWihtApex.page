@@ -24,6 +24,7 @@
     </table>
 
     <br />
+    <br />
     <hr />
     <br />
 
@@ -42,7 +43,7 @@
             <apex:repeat var="habilidadeContato" value="{!contato.habilidadeContato__r}">
                 <tr>
                     <td>{!habilidadeContato.Habilidade__r.Name}</td>
-                    <td>{!habilidadeContato.level__c}</td>
+                    <td>{!habilidadeContato.Level__c}</td>
                 </tr>
             </apex:repeat>
         </tbody>
