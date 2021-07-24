@@ -1,5 +1,5 @@
 @RestResource(urlMapping='/marvel/availableheroes/*')
-global class GeyAvailableHeroesIS {
+global class GetAvailableHeroesIS {
     
     @httpGet
     global static String doGet(){

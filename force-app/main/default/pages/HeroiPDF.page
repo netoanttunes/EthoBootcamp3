@@ -1,0 +1,52 @@
+<apex:page standardController="Contact" renderAs="pdf">
+
+    <center>
+        <h1>Dados do Herói</h1>
+    </center>
+
+    <table width="100%">
+        <tr>
+            <th> Nome de Guerra: </th>
+            <td> {!contact.NomeDeGuerra__c} </td>
+        </tr>
+        <tr>
+            <th> Nome Completo: </th>
+            <td> {!contact.Name} </td>
+        </tr>
+        <tr>
+            <th> Status do Candidato: </th>
+            <td> {!contact.StatusCandidato__c} </td>
+        </tr>
+        <tr>
+            <th> Feedback Treinamento: </th>
+            <td> {!contact.feedbackTreinamento__c} </td>
+        </tr>
+    </table>
+
+    <br />
+    <hr />
+    <br />
+
+    <center>
+        <h1>Habilidades</h1>
+    </center>
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Habilidade</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat var="habilidadeContato" value="{!contact.habilidadeContato__r}">
+                <tr>
+                    <td>{!habilidadeContato.habilidade__c}</td>
+                    <td>{!habilidadeContato.level__c}</td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+    </table>
+
+
+</apex:page>

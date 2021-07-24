@@ -1,0 +1,52 @@
+<apex:page controller="HeroiPDFWithApexController" renderAs="pdf">
+
+    <center>
+        <h1>Dados do Herói</h1>
+    </center>
+
+    <table width="100%">
+        <tr>
+            <th width="50%"> Nome de Guerra: </th>
+            <td> {!contato.NomeDeGuerra__c} </td>
+        </tr>
+        <tr>
+            <th width="50%"> Nome Completo: </th>
+            <td> {!contato.Name} </td>
+        </tr>
+        <tr>
+            <th width="50%"> Status do Candidato: </th>
+            <td> {!contato.StatusCandidato__c} </td>
+        </tr>
+        <tr>
+            <th width="50%"> Feedback Treinamento: </th>
+            <td> {!contato.feedbackTreinamento__c} </td>
+        </tr>
+    </table>
+
+    <br />
+    <hr />
+    <br />
+
+    <center>
+        <h1>Habilidades</h1>
+    </center>
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th width="50%">Habilidade</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat var="habilidadeContato" value="{!contato.habilidadeContato__r}">
+                <tr>
+                    <td>{!habilidadeContato.Habilidade__r.Name}</td>
+                    <td>{!habilidadeContato.level__c}</td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+    </table>
+
+
+</apex:page>
