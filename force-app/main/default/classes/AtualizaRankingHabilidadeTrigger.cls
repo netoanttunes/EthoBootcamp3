@@ -62,7 +62,7 @@ public class AtualizaRankingHabilidadeTrigger {
                 idsContato.add(habilidadeContato.Contato__c);
             }
             
-            // HabilidadeContatoBO.getInstance().atualizaRanking(idsContato);
+            HabilidadeContatoBO.getInstance().atualizaRanking(idsContato);
         }        
     }    
 }

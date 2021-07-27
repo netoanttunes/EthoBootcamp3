@@ -1,16 +1,11 @@
 public class ContactTriggerHandler {
     
-    public void onBeforeInsert( List<Contact> newRecords ){        
-        System.debug('>>> onBeforeInset <<<');        
+    public void onBeforeInsert( List<Contact> newRecords){        
+        System.debug('>>> onBeforeInset <<<');      
     }
     
-    public void onBeforeUpdate( List<Contact> newRecords, Map<ID, Contact> mapOld ){        
-        System.debug('>>> onBeforeUpdate <<<');
-        for( Contact contato : newRecords ) {
-            System.debug('>>> Before Contato New LastModifiedDate :: ' + contato.LastModifiedDate);
-            System.debug('>>> Before Contato New :: ' + contato);
-            System.debug('>>> Before Contato Old ::' + mapOld.get(contato.Id));
-        }        
+    public void onBeforeUpdate( List<Contact> newRecords, Map<ID, Contact> oldMap ){        
+        System.debug('>>> onBeforeUpdate <<<');      
     }
     
 	public void onAfterInsert( List<Contact> newRecords ){        
@@ -18,13 +13,13 @@ public class ContactTriggerHandler {
        	ContactTriggerHelper.criaTarefaParaEncontrarFraquezasVilao(newRecords); 		        
     }  
     
-    public void onAfterUpdate( List<Contact> newRecords, Map<ID, Contact> mapOld ){    
+    public void onAfterUpdate( List<Contact> newRecords, Map<ID, Contact> oldMap ){    
         System.debug('>>> onAfterUpdate <<<');
     }
     
-    public void onBeforeDelete( List<Contact> oldRecords, Map<ID, Contact> mapOld ){    
+    public void onBeforeDelete( List<Contact> oldRecords, Map<ID, Contact> oldMap ){    
         System.debug('>>> onAfterUpdate <<<');
-        ContactTriggerHelper.naoPermiteApagarQuandoExisteTaskEmAberto( oldRecords, mapOld );
+        ContactTriggerHelper.naoPermiteApagarQuandoExisteTaskEmAberto( oldRecords, oldMap );
     }
 
 }

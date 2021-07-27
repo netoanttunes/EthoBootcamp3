@@ -1,0 +1,58 @@
+<apex:page standardController="Contact" renderAs="pdf">
+
+    <center>
+        <h1>Relatório do Herói</h1>
+    </center>
+
+    <table width="100%">
+        <tr>
+            <th> Nome de Guerra: </th>
+            <td> {!contact.NomeDeGuerra__c} </td>
+        </tr>
+        <tr>
+            <th> Nome Completo: </th>
+            <td> {!contact.Name} </td>
+        </tr>
+        <tr>
+            <th> Status do Candidato: </th>
+            <td> {!contact.StatusCandidato__c} </td>
+        </tr>
+        <tr>
+            <th> Feedback Treinamento: </th>
+            <td> {!contact.feedbackTreinamento__c} </td>
+        </tr>
+    </table>
+
+    <br />
+    <hr />
+    <br />
+
+    <center>
+        <h1>Treinamento</h1>
+    </center>
+
+    <table width="100%">
+        <tr>
+            <th> Status Treinamento: </th>
+            <td> {!contact.StatusCandidato__c} </td>
+        </tr>
+        <tr>
+            <th> Nivel do Herói: </th>
+            <td> {!contact.NivelDoHeroi__c} </td>
+        </tr>
+        <tr>
+            <th> Feedback do trinamento: </th>
+            <td> {!contact.feedbackTreinamento__c} </td>
+        </tr>
+        <tr>
+            <th> Data da aprovação: </th>
+            <td> {!contact.DataDaAprovacao__c} </td>
+        </tr>
+        <tr>
+            <th> Responsável pela Aprovação: </th>
+            <td> {!contact.ResponsavelPelaAprovacao__c} </td>
+        </tr>
+    </table>
+
+
+</apex:page>
