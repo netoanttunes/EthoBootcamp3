@@ -1,0 +1,55 @@
+<aura:component controller="AlocacaoBatalhaDefault" implements="force:appHostable">
+
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="showModal" type="Boolean"/>
+    <aura:attribute name="fields"
+                    type="String[]"
+                    default="['Batalha__c', 'Contato__c']"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <lightning:card title="Ferramenta para alocação de contatos em batalhas" iconName="custom:custom9">
+        <aura:set attribute="actions">
+            <lightning:button label="Nova Alocação" title="Clique aqui para alocar um contato em Batalha" onclick="{! c.handleClick }"/>
+        </aura:set>
+
+            <lightning:datatable
+                    keyField="id"
+                    data="{! v.data }"
+                    columns="{! v.columns }"
+                    hideCheckboxColumn="true"/>
+  
+    </lightning:card>
+
+    <aura:if isTrue="{!v.showModal}">
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" 
+                 aria-modal="true" aria-describedby="modal-content-id-1" 
+                 class="slds-modal slds-fade-in-open">
+            
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.handleClick }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                        Alocar Contato
+                    </h2>
+                </header>
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning:recordForm objectApiName="BatalhaDoContato__c"
+                                          fields="{!v.fields}" 
+                                          onsuccess="{! c.handleClick}"
+                                          />
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+</aura:component>	

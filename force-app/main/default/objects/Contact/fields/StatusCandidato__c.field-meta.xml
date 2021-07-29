@@ -5,7 +5,7 @@
     <externalId>false</externalId>
     <inlineHelpText>Mostra o Status do Candidato</inlineHelpText>
     <label>Status Candidato</label>
-    <required>true</required>
+    <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <type>Picklist</type>
     <valueSet>
